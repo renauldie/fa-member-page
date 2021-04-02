@@ -1,3 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.header-clipping {
+	@apply relative;
+}
+
+.header-clipping .container {
+	@apply relative;
+	z-index: 4;
+}
+
+.header-clipping:before {
+	content: '';
+	height: 648px;
+	@apply w-full bg-blue-600 inset-0 absolute;
+	clip-path: polygon(0 0, 100% 0, 100% 87%, 0% 100%);
+}
+
+@media (max-width: 640px) {
+	.header-clipping svg#accent-circle {
+		bottom: 50px;
+		transform: rotate(-14deg);
+		left: -27px;
+	}
+}
+
+.item figure.item-image {
+	position: relative;
+	perspective: 10000px;
+}
+
+.item figure.item-image:before {
+	content: '';
+	@apply absolute inset-0 bg-indigo-900 opacity-0 transition-all duration-200;
+}
+
+.item:hover figure.item-image:before {
+	@apply opacity-75;
+}
+
+.item figure.item-image svg.icon {
+	content: '';
+	position: absolute;
+	width: 46px;
+	height: 46px;
+	top: 50%;
+	left: 50%;
+	transform-origin: bottom;
+	opacity: 0;
+	transform: translateX(-50%) translateY(-50%) rotateX(-45deg);
+	@apply transition-all duration-300;
+}
+
+.item:hover figure.item-image svg.icon {
+	opacity: 1;
+	transform: translateX(-50%) translateY(-50%) rotateX(0deg);
+}
+
+.card {
+	@apply border-gray-200 h-full p-6 border relative;
+}
+
+.card svg {
+  @apply fill-current text-gray-600;
+}
+
+.card:hover svg {
+  @apply fill-current text-white;
+}
+
+.card:hover {
+  @apply bg-blue-400 border-blue-700;
+  box-shadow: 0px 6px 15px rgba(77, 85, 188, 0.4);
+}
+
+.card .card-meta h4 {
+  @apply text-gray-900
+}
+
+.card:hover .card-meta h4 {
+  @apply text-white
+}
+
+.card .card-meta h5 {
+  @apply text-gray-600
+}
+
+.card:hover .card-meta h5 {
+  @apply text-white
+}
