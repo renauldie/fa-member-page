@@ -14,7 +14,7 @@ export default function Login() {
 				<Header onLight></Header>
 			</section>
       <section className="container mx-auto pt-10 px-4">
-        <LoginForm></LoginForm>
+        <LoginForm crossorigin></LoginForm>
       </section>
 
       <section className="mt-24 bg-blue-1000 py-12">

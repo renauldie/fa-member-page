@@ -23,36 +23,33 @@ function Header({ onLight, location }) {
 			</div>
 			<ul className='flex'>
 				<li>
-					<Link href='/'>
-						<a
-							className={[
-								linkColor,
-								'text-white hover:text-gray-400 transition-all duration-300 text-lg px-6 py-3 font-medium',
-							].join(' ')}>
-							Home
-						</a>
+					<Link
+						to='/'
+						className={[
+							linkColor,
+							'text-white hover:text-gray-400 transition-all duration-300 text-lg px-6 py-3 font-medium',
+						].join(' ')}>
+						Home
 					</Link>
 				</li>
 				<li>
-					<Link href='/'>
-						<a
-							className={[
-								linkColor,
-								'text-white hover:text-gray-400 transition-all duration-300 text-lg px-6 py-3 font-medium',
-							].join(' ')}>
-							Regulation
-						</a>
+					<Link
+						to='/'
+						className={[
+							linkColor,
+							'text-white hover:text-gray-400 transition-all duration-300 text-lg px-6 py-3 font-medium',
+						].join(' ')}>
+						Regulation
 					</Link>
 				</li>
 				<li>
-					<Link href='/'>
-						<a
-							className={[
-								linkColor,
-								'text-white hover:text-gray-400 transition-all duration-300 text-lg px-6 py-3 font-medium',
-							].join(' ')}>
-							About Team
-						</a>
+					<Link
+						to='/'
+						className={[
+							linkColor,
+							'text-white hover:text-gray-400 transition-all duration-300 text-lg px-6 py-3 font-medium',
+						].join(' ')}>
+						About Team
 					</Link>
 				</li>
 				{/* <li>

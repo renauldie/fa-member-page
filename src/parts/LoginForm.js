@@ -1,17 +1,53 @@
 import React, { useState } from 'react';
+import {withRouter} from 'react-router-dom'
 
 import users from 'constants/api/users';
 
-export default function LoginForm() {
+import { setAuthirizationHeader } from 'configs/axios';
+
+function LoginForm({ history }) {
 	const [u, setnpm] = useState(() => '');
 	const [p, setpassword] = useState(() => '');
 
 	function submit(e) {
 		e.preventDefault();
 
-		users.login({ u, p }).then((res) => {
-			console.log(res);
-		});
+		users
+			.login({ u, p })
+			.then((res) => {
+				setAuthirizationHeader(res.data.token);
+				// console.log(res);
+				users.details().then((detail) => {
+					const production =
+						process.env.REACT_APP_FRONT_PAGE_URL === 'http://localhost:3005'
+							? 'Domain = localhost:3005'
+							: '';
+					localStorage.setItem(
+						'FA:token',
+						JSON.stringify({
+							...res.data,
+							u: u,
+						})
+					);
+
+					const redirect = localStorage.getItem('FA:redirect');
+					const userCookie = {
+						name: detail.data.name,
+						thumbnail: detail.data.avatar,
+					};
+
+					const expires = new Date(
+						new Date().getTime() + 7 * 24 * 60 * 60 * 1000
+					);
+
+					document.cookie = `FA:user=${JSON.stringify(
+						userCookie
+					)}; expires=${expires.toUTCString()}; path:/; ${production}`;
+
+					history.push(redirect || '/');
+				});
+			})
+			.catch((err) => {});
 	}
 
 	return (
@@ -81,3 +117,5 @@ export default function LoginForm() {
 		</div>
 	);
 }
+
+export default withRouter(LoginForm)

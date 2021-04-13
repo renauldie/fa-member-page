@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Unauthtenticate() {
+export default function NotFound() {
   return (
     <div>
-      Login
+      Unauthtenticated
     </div>
   )
 }

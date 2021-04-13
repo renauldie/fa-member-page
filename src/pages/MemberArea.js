@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Unauthtenticate() {
+export default function MemberArea() {
   return (
     <div>
-      Login
+      Member Page
     </div>
   )
 }

@@ -8,28 +8,28 @@ export default function Footer() {
 	return (
 		<footer className='container px-8 mx-auto'>
 			<div className='flex flex-wrap justify-between'>
-      <div className="w-full sm:w-1/6">
+				<div className='w-full sm:w-1/6'>
 					<h6 className='text-white'>Faculty</h6>
 					<ul className='mt-4'>
 						<li className='mt-2'>
-							<Link href=''>
-								<a className='text-indigo-500 hover:text-blue-400 hover:underline'>
-									Computer Science
-								</a>
+							<Link
+								to=''
+								className='text-indigo-500 hover:text-blue-400 hover:underline'>
+								Computer Science
 							</Link>
 						</li>
 						<li className='mt-2'>
-							<Link href=''>
-								<a className='text-indigo-500 hover:text-blue-400 hover:underline'>
-									Economy and Bussiness
-								</a>
+							<Link
+								to=''
+								className='text-indigo-500 hover:text-blue-400 hover:underline'>
+								Economy and Bussiness
 							</Link>
 						</li>
 						<li className='mt-2'>
-							<Link href=''>
-								<a className='text-indigo-500 hover:text-blue-400 hover:underline'>
-									Sains and Technology
-								</a>
+							<Link
+								to=''
+								className='text-indigo-500 hover:text-blue-400 hover:underline'>
+								Sains and Technology
 							</Link>
 						</li>
 					</ul>
