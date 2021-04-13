@@ -1,13 +1,21 @@
-import React, { useState } from 'react';
-import {withRouter} from 'react-router-dom'
+import React from 'react';
+import { withRouter } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import users from 'constants/api/users';
 
 import { setAuthirizationHeader } from 'configs/axios';
 
+import { populateProfile } from 'store/actions/users';
+
+import useForm from 'helpers/hooks/useform';
+
 function LoginForm({ history }) {
-	const [u, setnpm] = useState(() => '');
-	const [p, setpassword] = useState(() => '');
+	const dispacth = useDispatch();
+	const [{u, p}, setState] = useForm({
+		u: '',
+		p: '',
+	});
 
 	function submit(e) {
 		e.preventDefault();
@@ -18,6 +26,7 @@ function LoginForm({ history }) {
 				setAuthirizationHeader(res.data.token);
 				// console.log(res);
 				users.details().then((detail) => {
+					dispacth(populateProfile(detail.data));
 					const production =
 						process.env.REACT_APP_FRONT_PAGE_URL === 'http://localhost:3005'
 							? 'Domain = localhost:3005'
@@ -65,7 +74,7 @@ function LoginForm({ history }) {
 						<input
 							name='u'
 							type='text'
-							onChange={(event) => setnpm(event.target.value)}
+							onChange={setState}
 							className='bg-white focus:outline-none border w-full px-6 py-2 border-gray-400 focus:border-blue-600'
 							value={u}
 							placeholder='Your npm'
@@ -80,7 +89,7 @@ function LoginForm({ history }) {
 						<input
 							name='p'
 							type='password'
-							onChange={(event) => setpassword(event.target.value)}
+							onChange={setState}
 							className='bg-white focus:outline-none border w-full px-6 py-2 border-gray-400 focus:border-blue-600'
 							value={p}
 							placeholder='Your Password'
@@ -118,4 +127,4 @@ function LoginForm({ history }) {
 	);
 }
 
-export default withRouter(LoginForm)
+export default withRouter(LoginForm);
