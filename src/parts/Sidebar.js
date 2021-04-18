@@ -79,38 +79,37 @@ function Sidebar({ match, history }) {
 									getNavLinkClass('/'),
 								].join(' ')}
 								to='/'>
-								My Class
+								Dashboard
 							</Link>
-						</li>
-						<li>
-							<a
-								target='_blank'
-								rel='noopener noreferrer'
-								className={[
-									'nav-link relative flex items-center py-3 px-5 transition-all duration-200 hover:text-white active:text-white focus:outline-none w-full text-left text-indigo-500',
-								].join(' ')}
-								href={`${process.env.REACT_APP_FRONTPAGE_URL}/library`}>
-								Library
-							</a>
 						</li>
 						<li>
 							<Link
 								className={[
 									'nav-link relative flex items-center py-3 px-5 transition-all duration-200 hover:text-white active:text-white focus:outline-none w-full text-left',
-									getNavLinkClass('/transactions'),
+									getNavLinkClass('/certivicates'),
 								].join(' ')}
 								to='/transactions'>
-								Transactions
+								Open Recruitment
 							</Link>
 						</li>
 						<li>
 							<Link
 								className={[
 									'nav-link relative flex items-center py-3 px-5 transition-all duration-200 hover:text-white active:text-white focus:outline-none w-full text-left',
-									getNavLinkClass('/settings'),
+									getNavLinkClass('/certivicates'),
+								].join(' ')}
+								to='/transactions'>
+								Certivicates
+							</Link>
+						</li>
+						<li>
+							<Link
+								className={[
+									'nav-link relative flex items-center py-3 px-5 transition-all duration-200 hover:text-white active:text-white focus:outline-none w-full text-left',
+									getNavLinkClass('/profile'),
 								].join(' ')}
 								to='/settings'>
-								Settings
+								Profile
 							</Link>
 						</li>
 					</ul>
