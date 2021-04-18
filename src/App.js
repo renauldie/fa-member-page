@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { createBrowserHistory } from 'history';
 import { Router, Route, Switch } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import 'assets/css/style.css';
 
@@ -14,8 +15,27 @@ import Login from 'pages/Login';
 
 import MemberArea from 'pages/MemberArea';
 
+import { setAuthorizationHeader } from 'configs/axios';
+
+import users from 'constants/api/users';
+
+import { populateProfile } from 'store/actions/users';
+
 function App() {
+	const dispatch = useDispatch();
 	const history = createBrowserHistory({ basename: process.env.PUBLIC_URL });
+
+	useEffect(() => {
+		let session = null;
+		if (localStorage.getItem('FA:token')) {
+			session = JSON.parse(localStorage.getItem('FA:token'));
+			setAuthorizationHeader(session.token);
+
+			users.details().then((details) => {
+				dispatch(populateProfile(details.data));
+			});
+		}
+	}, [dispatch]);
 	return (
 		<>
 			<Router history={history}>
