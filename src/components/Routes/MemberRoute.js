@@ -1,7 +1,13 @@
 import React from 'react';
 import { Route, Redirect, withRouter } from 'react-router-dom';
 
-const MemberRoute = ({ component: Component, match, path, location, ...rest }) => {
+const MemberRoute = ({
+	component: Component,
+	match,
+	path,
+	location,
+	...rest
+}) => {
 	const ok = localStorage.getItem('FA:token');
 	console.log(rest);
 	localStorage.removeItem('FA:redirect');
