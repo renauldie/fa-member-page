@@ -10,8 +10,8 @@ function Header({ onLight, location }) {
 
 	const linkCTA =
 		location.pathname.indexOf('/login') > -1
-			? `${process.env.NEXT_PUBLIC_MEMBERPAGE_URL}/register`
-			: `${process.env.NEXT_PUBLIC_MEMBERPAGE_URL}/login`;
+			? `/register`
+			: `/login`;
 
 	const textCTA =
 		location.pathname.indexOf('/login') > -1 ? 'Register' : 'Join Us';
@@ -52,15 +52,6 @@ function Header({ onLight, location }) {
 						About Team
 					</Link>
 				</li>
-				{/* <li>
-					<a
-						target='_blank'
-						rel='noopener noreferrer'
-						href={linkCTA}
-						className='bg-blue-800 hover:bg-blue-600 transition-all duration-200 text-white hover:text-gray-900 text-lg px-6 py-3 font-medium ml-6'>
-						{textCTA}
-					</a>
-				</li> */}
 			</ul>
 		</header>
 	);
