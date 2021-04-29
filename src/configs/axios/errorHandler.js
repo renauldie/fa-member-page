@@ -18,7 +18,7 @@ export default function errorHandler(error) {
 				return users
 					.refresh({
 						refresh_token: session.refresh_token,
-						email: session.email,
+						npm: session.npm,
 					})
 					.then((res) => {
 						if (res.data) {

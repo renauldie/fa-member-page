@@ -6,7 +6,7 @@ export default {
 	refresh: (credentials) =>
 		axios.post('/refresh-tokens', {
 			refresh_token: credentials.refresh_token,
-			email: credentials.email,
+			npm: credentials.npm,
 		}),
 
 	details: () => axios.get('/users'),
