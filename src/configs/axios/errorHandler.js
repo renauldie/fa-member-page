@@ -18,7 +18,7 @@ export default function errorHandler(error) {
 				return users
 					.refresh({
 						refresh_token: session.refresh_token,
-						u: session.u,
+						npm: session.u,
 					})
 					.then((res) => {
 						if (res.data) {
@@ -30,7 +30,7 @@ export default function errorHandler(error) {
 									token: res.data.token,
 								})
 							);
-
+							console.log(session.u);
 							originalRequest.headers.authorization = res.data.token;
 
 							return axios(originalRequest);
