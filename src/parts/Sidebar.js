@@ -48,7 +48,7 @@ function Sidebar({ match, history }) {
 						onClick={() => setToggleMenu((prev) => !prev)}></div>
 				)}
 				<div
-					className='max-h-screen h-screen fixed bg-indig-1000 flex flex-col content-between z-50'
+					className='max-h-screen h-screen fixed bg-indigo-1000 flex flex-col content-between z-50'
 					style={{ width: 280 }}>
 					<div className='flex flex-col text-center mt-8'>
 						<div className='border border-indigo-500 rounded-full mx-auto p-2 inline-flex  mb-3'>
@@ -86,9 +86,9 @@ function Sidebar({ match, history }) {
 							<Link
 								className={[
 									'nav-link relative flex items-center py-3 px-5 transition-all duration-200 hover:text-white active:text-white focus:outline-none w-full text-left',
-									getNavLinkClass('/certivicates'),
+									getNavLinkClass('/oprec'),
 								].join(' ')}
-								to='/transactions'>
+								to='/oprec'>
 								Open Recruitment
 							</Link>
 						</li>
@@ -98,7 +98,7 @@ function Sidebar({ match, history }) {
 									'nav-link relative flex items-center py-3 px-5 transition-all duration-200 hover:text-white active:text-white focus:outline-none w-full text-left',
 									getNavLinkClass('/certivicates'),
 								].join(' ')}
-								to='/transactions'>
+								to='/certivicates'>
 								Certivicates
 							</Link>
 						</li>
@@ -108,7 +108,7 @@ function Sidebar({ match, history }) {
 									'nav-link relative flex items-center py-3 px-5 transition-all duration-200 hover:text-white active:text-white focus:outline-none w-full text-left',
 									getNavLinkClass('/profile'),
 								].join(' ')}
-								to='/settings'>
+								to='/profile'>
 								Profile
 							</Link>
 						</li>
