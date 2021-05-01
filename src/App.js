@@ -14,6 +14,7 @@ import Unauthenticated from 'pages/401';
 import Login from 'pages/Login';
 
 import MemberArea from 'pages/MemberArea';
+import Profile from 'pages/Profile';
 
 import { setAuthorizationHeader } from 'configs/axios';
 
@@ -44,6 +45,7 @@ function App() {
 					<GuestRoute path='/private' component={Unauthenticated}></GuestRoute>
 					<MemberRoute exact path='/' component={MemberArea}></MemberRoute>
 
+					<MemberRoute path='/profile' component={Profile}></MemberRoute>
 					<Route path='*' component={NotFound}></Route>
 				</Switch>
 			</Router>
