@@ -97,3 +97,48 @@
 .card:hover .card-meta h5 {
 	@apply text-white;
 }
+
+.toggle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 30px;
+  top: 45px;
+}
+.guest-page .toggle {
+  position: relative;
+  left: auto;
+  top: auto;
+}
+.toggle:focus {
+  outline: none;
+}
+.toggle:before,
+.toggle:after {
+  @apply right-0 absolute bg-gray-900 transition-all duration-200;
+  content: "";
+  height: 3px;
+  transform-origin: center;
+}
+.toggle:before {
+  top: 26%;
+  width: 20px;
+}
+.toggle:after {
+  top: 58%;
+  width: 12px;
+}
+
+.toggle.active:before,
+.toggle.active:after {
+  width: 20px;
+  top: 50%;
+  @apply bg-white;
+}
+
+.toggle.active:before {
+  transform: translateY(-50%) rotate(-45deg);
+}
+.toggle.active:after {
+  transform: translateY(-50%) rotate(45deg);
+}

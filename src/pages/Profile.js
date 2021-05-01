@@ -22,7 +22,7 @@ export default function Profile() {
 							Settings
 						</h1>
 						<p className='text-sm sm:text-lg text-gray-600'>
-							Secure your data informations
+							Complete your data then join us
 						</p>
 					</section>
 
