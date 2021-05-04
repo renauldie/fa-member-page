@@ -44,8 +44,8 @@ export default function Select({
 			<div className='relative' ref={selectWrapper} onClick={toggleSelect}>
 				<div
 					className={[
-						'flex justify-between cursor-pointer bg-white focus:outline-none transition-all duration-200 border px-4 py-3 w-full',
-						toggle ? 'border-teal-500' : 'border-gray-600',
+						'flex justify-between cursor-pointer bg-white focus:outline-none transition-all duration-200 border px-4 py-3 w-full rounded-md',
+						toggle ? 'border-blue-700' : 'border-gray-600',
 						className,
 					].join(' ')}>
 					<span className={value === '' ? 'text-gray-500' : ''}>
@@ -55,7 +55,7 @@ export default function Select({
 				</div>
 				<div
 					className={[
-						'absolute left-0 bg-white border border-gray-600 py-3 w-full',
+						'absolute left-0 bg-white border border-gray-600 py-3 w-full rounded-md rounded-t-none',
 						toggle ? '' : 'hidden',
 					].join(' ')}>
 					{items.map((item, index) => {

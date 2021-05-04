@@ -61,7 +61,7 @@ function LoginForm({ history }) {
 
 	return (
 		<div className='flex justify-center items-center pb-24'>
-			<div className='w-full sm:w-3/12'>
+			<div className='w-full sm:w-1/3'>
 				<h1 className='text-4xl text-gray-900 mb-6'>
 					<span className='font-bold'>Continue</span> Study, <br />
 					Finish your <span className='font-bold'>Goals</span>
@@ -75,9 +75,10 @@ function LoginForm({ history }) {
 							name='u'
 							type='name'
 							onChange={setState}
-							className='bg-white focus:outline-none border w-full px-6 py-3 w-1/2 border-gray-600 focus:border-teal-500'
+							className='bg-white focus:outline-none border w-full px-6 py-3 border-gray-600 focus:border-blue-700 rounded-md'
 							value={u}
-							placeholder='Your email addres'
+							placeholder='Your NPM'
+							required
 						/>
 					</div>
 
@@ -89,9 +90,10 @@ function LoginForm({ history }) {
 							name='p'
 							type='password'
 							onChange={setState}
-							className='bg-white focus:outline-none border w-full px-6 py-3 w-1/2 border-gray-600 focus:border-teal-500'
+							className='bg-white focus:outline-none border w-full px-6 py-3 border-gray-600 focus:border-blue-700 rounded-md'
 							value={p}
-							placeholder='Your password addres'
+							placeholder='Your password'
+							required
 						/>
 					</div>
 
@@ -108,10 +110,7 @@ function LoginForm({ history }) {
 			<div className='w-5/12 hidden sm:block justify-end pt-24 pr-16'>
 				<div className='relative' style={{ width: 369, height: 440 }}>
 					<div className='absolute w-full h-full -mb-8 -ml-8'>
-						<img
-							src='#'
-							alt=''
-						/>
+						<img src='#' alt='' />
 					</div>
 					<div
 						className='absolute z-10 bg-white bottom-0 right-0 py-3 px-4 -mr-12'

@@ -41,9 +41,9 @@ function Header({ onLight, location }) {
 						to='/'
 						className={[
 							linkColor,
-							' hover:text-blue-500 text-lg px-6 py-3 my-4 sm:my-0 font-medium',
+							' hover:text-blue-700 text-lg px-6 py-3 my-4 sm:my-0 font-medium',
 						].join(' ')}>
-						Home
+						Regulation
 					</Link>
 				</li>
 				<li className='leading-10'>
@@ -51,9 +51,9 @@ function Header({ onLight, location }) {
 						to='/'
 						className={[
 							linkColor,
-							' hover:text-blue-500 text-lg px-6 py-3 my-4 sm:my-0 font-medium',
+							' hover:text-blue-700 text-lg px-6 py-3 my-4 sm:my-0 font-medium',
 						].join(' ')}>
-						Story
+						Home
 					</Link>
 				</li>
 			</ul>
