@@ -86,9 +86,9 @@ function Sidebar({ match, history }) {
 							<Link
 								className={[
 									'nav-link relative flex items-center py-3 px-5 transition-all duration-200 hover:text-white active:text-white focus:outline-none w-full text-left',
-									getNavLinkClass('/oprec'),
+									getNavLinkClass('/open-recruitment'),
 								].join(' ')}
-								to='/oprec'>
+								to='/open-recruitment'>
 								Open Recruitment
 							</Link>
 						</li>

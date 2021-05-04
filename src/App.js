@@ -15,6 +15,8 @@ import Login from 'pages/Login';
 
 import MemberArea from 'pages/MemberArea';
 import Profile from 'pages/Profile';
+import OpenRecruitment from 'pages/OpenRecruitment';
+import Certivicates from 'pages/Certivicates';
 
 import { setAuthorizationHeader } from 'configs/axios';
 
@@ -44,7 +46,12 @@ function App() {
 					<GuestRoute path='/login' component={Login}></GuestRoute>
 					<GuestRoute path='/private' component={Unauthenticated}></GuestRoute>
 					<MemberRoute exact path='/' component={MemberArea}></MemberRoute>
-
+					<MemberRoute
+						path='/open-recruitment'
+						component={OpenRecruitment}></MemberRoute>
+					<MemberRoute
+						path='/certivicates'
+						component={Certivicates}></MemberRoute>
 					<MemberRoute path='/profile' component={Profile}></MemberRoute>
 					<Route path='*' component={NotFound}></Route>
 				</Switch>
