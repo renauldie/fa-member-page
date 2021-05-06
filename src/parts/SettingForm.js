@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { withRouter } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import propsTypes from 'prop-types'
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -35,6 +36,7 @@ function SettingForm({ details, history }) {
 		avatar: details?.avatar ?? '',
 		tft: details?.tft ?? '',
 		city_address: details?.city_address ?? '',
+		ipk: details?.ipk ?? '',
 	});
 
 	const [errors, setErrors] = useState(null);
@@ -59,11 +61,10 @@ function SettingForm({ details, history }) {
 			npm: state.npm,
 			email: state.email,
 			avatar: state.avatar,
-			tft: state.tft,
+			tft: Boolean(state.tft),
 			city_address: state.city_address,
+			ipk: parseInt(state.ipk),
 		};
-		if (payload.profession === 'others')
-			payload.profession = state.otherProfession;
 
 		if (state.avatar.indexOf('base64') > -1) {
 			const avatar = await media.upload(state.avatar);
@@ -162,19 +163,31 @@ function SettingForm({ details, history }) {
 								value={state.city_address}
 								error={ERRORS?.city_address?.message}
 								name='city_address'
-								type='text'
 								onChange={setKey}
 								placeholder='Your city address'
 								labelName='City Address'
 							/>
+							{/* <Input
+								value={state.ipk}
+								error={ERRORS?.ipk?.message}
+								name='ipk'
+								type='number'
+								onChange={setKey}
+								placeholder='IPK Value'
+								labelName='IPK'
+							/> */}
 							<Input
 								value={state.tft}
 								error={ERRORS?.tft?.message}
 								name='tft'
-								type='text'
+								type='boolean'
 								onChange={setKey}
+								placeholder='TFT Status'
 								labelName='TFT Status'
 							/>
+
+							<p className='text-xs -mt-3 ml-3 mb-3 text-red-700'>*Training for Trainer adalah agenda untuk pembekalan materi saat di lab</p>
+
 							<button
 								type='submit'
 								className='bg-blue-800 hover:bg-blue-700 transition-all duration-200 focus:outline-none shadow-inner text-white px-6 py-3 mt-4 rounded-md'>
