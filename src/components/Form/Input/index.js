@@ -44,11 +44,11 @@ export default function Input({
 
 Input.propTypes = {
 	error: propTypes.string,
-	name: propTypes.string.isRequired,
-	onChange: propTypes.func.isRequired,
-	value: propTypes.oneOfType([propTypes.string, propTypes.number]).isRequired,
-	placeholder: propTypes.string,
-	labelName: propTypes.string,
-	inputClassName: propTypes.string,
-	type: propTypes.oneOf(['text', 'email', 'password']),
+  name: propTypes.string.isRequired,
+  onChange: propTypes.func.isRequired,
+  value: propTypes.oneOfType([propTypes.string, propTypes.number]).isRequired,
+  placeholder: propTypes.string,
+  labelName: propTypes.string,
+  inputClassName: propTypes.string,
+  type: propTypes.oneOf(["text", "email", "password", "number"]),
 };
