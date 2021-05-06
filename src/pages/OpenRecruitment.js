@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Sidebar from 'parts/Sidebar';
-import OprecForm from 'parts/OprecForm'
+import OprecForm from 'parts/OprecForm';
 
 export default function OpenRecruitment() {
 	return (
@@ -14,11 +14,11 @@ export default function OpenRecruitment() {
 						<h1 className='text-xl sm:text-4xl text-gray-900 font-medium'>
 							Open Recruitment
 						</h1>
-						<p className="text-sm sm:text-lg text-gray-600">
+						<p className='text-sm sm:text-lg text-gray-600'>
 							Choose what you're good at
 						</p>
+						<OprecForm></OprecForm>
 					</section>
-					<OprecForm></OprecForm>
 				</div>
 			</main>
 		</div>
