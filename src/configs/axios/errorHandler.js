@@ -30,7 +30,7 @@ export default function errorHandler(error) {
 									token: res.data.token,
 								})
 							);
-							console.log(session.u);
+
 							originalRequest.headers.authorization = res.data.token;
 
 							return axios(originalRequest);
@@ -39,6 +39,9 @@ export default function errorHandler(error) {
 							localStorage.removeItem('FA:token');
 						}
 					});
+			} else if (error.response.data.status === 'error') {
+				window.location.href = '/login';
+				localStorage.removeItem('FA:token');
 			} else message = error.response.data.message;
 
 			if (typeof message === 'string') toast.error(message);
