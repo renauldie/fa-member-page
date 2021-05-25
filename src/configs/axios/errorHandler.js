@@ -32,16 +32,19 @@ export default function errorHandler(error) {
 							);
 
 							originalRequest.headers.authorization = res.data.token;
-
+							
 							return axios(originalRequest);
+						
+							// if (error.response.status === 403) {
+							// 	window.location.href = '/login';
+							// 	localStorage.removeItem('FA:token');
+							// }
+							
 						} else {
 							window.location.href = '/login';
 							localStorage.removeItem('FA:token');
 						}
 					});
-			} else if (error.response.data.status === 'error') {
-				window.location.href = '/login';
-				localStorage.removeItem('FA:token');
 			} else message = error.response.data.message;
 
 			if (typeof message === 'string') toast.error(message);
