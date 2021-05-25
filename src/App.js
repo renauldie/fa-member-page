@@ -45,6 +45,7 @@ function App() {
 				<Switch>
 					<GuestRoute path='/login' component={Login}></GuestRoute>
 					<GuestRoute path='/private' component={Unauthenticated}></GuestRoute>
+				
 					<MemberRoute exact path='/' component={MemberArea}></MemberRoute>
 					<MemberRoute
 						path='/open-recruitment'
@@ -53,6 +54,7 @@ function App() {
 						path='/certivicates'
 						component={Certivicates}></MemberRoute>
 					<MemberRoute path='/profile' component={Profile}></MemberRoute>
+			
 					<Route path='*' component={NotFound}></Route>
 				</Switch>
 			</Router>
