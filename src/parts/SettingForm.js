@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { withRouter } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import propsTypes from 'prop-types'
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

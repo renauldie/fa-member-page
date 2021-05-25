@@ -46,7 +46,8 @@ function LoginForm({ history }) {
 					};
 
 					const expires = new Date(
-						new Date().getTime() + 7 * 24 * 60 * 60 * 1000
+						new Date().getTime() + 1 * 24 * 60 * 60 * 1000
+						// new Date().getTime() + 10 * 60 * 1000
 					);
 
 					document.cookie = `FA:user=${JSON.stringify(
