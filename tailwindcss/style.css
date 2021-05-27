@@ -168,3 +168,9 @@
 	font-size: 18px;
 	text-align: center;
 }
+
+.item-wrap {
+	overflow: hidden; 
+	white-space: nowrap; 
+	text-overflow: ellipsis; 
+}
