@@ -1,45 +1,52 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 
-import Select from 'components/Form/Select';
+import useForm from 'helpers/hooks/useForm';
+
+
+import selectedCourse from 'constants/api/oprec';
 
 export default function OprecForm({ data, course }) {
+
+	async function submit(e) {
+		e.preventDefault();
+
+		const id = data.id;
+
+		selectedCourse.DelMyCourse(id).then((res) => {
+			toast.success('Selected course deleted');
+		});
+	}
+
 	return (
-		<div>
-			<section className='flex flex-col md:w-9/12 xl:w-9/12 sm:w-6/12'>
-				<div className='flex items-center pb-10'>
-					<h1 className='text-xl'>Selected Courses</h1>
-				</div>
-				<div className='flex flex-col'>
-					<table className='table-fixed'>
-						<thead>
-							<tr>
-								<th className='w-1/2 text-left'>Course</th>
-								<th className='w-1/2 text-left'>Whatsapp link</th>
-								<th className='w-1/4 text-right'>Action</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr className=' '>
-								<td>{course.name}</td>
-								{console.log(course, 'data')}
-								<td>
-									<a
-										className='rounded-md text-blue-700 hover:text-blue-400 transition-all duration-200'
-										href={data.whatsapp_link}
-										target='_blank'>
-										click this link to join group
-									</a>
-								</td>
-								<td className='text-right'>
-									<a className='text-red-700'>delete</a>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-			</section>
-		</div>
+		<>
+			<tbody>
+				<tr>
+					<td>
+						<div className='item-wrap'>
+							<p className='mr-4'>{course.name}</p>
+							<p className='mr-4'>{data.id}</p>
+						</div>
+					</td>
+					<td>
+						<a
+							className='rounded-md text-blue-700 hover:text-blue-400 transition-all duration-200 md:mr-3 xl:-mr-2'
+							href={data.offered_course.whatsapp_link}
+							target='_blank'>
+							join group!
+						</a>
+					</td>
+					<td className='item-center'>
+						<form onSubmit={submit}>
+							<button
+								type='submit'
+								className='w-full h-10 bg-red-800 hover:bg-red-700 transition-all duration-200 focus:outline-none shadow-inner text-white py-2 rounded-md'>
+								delete
+							</button>
+						</form>
+					</td>
+				</tr>
+			</tbody>
+		</>
 	);
 }
-
-// export default withRouter(OprecForm);
