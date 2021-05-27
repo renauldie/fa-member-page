@@ -8,9 +8,14 @@ export default function errorHandler(error) {
 		let message;
 		if (error.response) {
 			const originalRequest = error.config;
-			if (error.response.status === 500)
+			if (error.response.status === 500) {
 				message = 'Something went terribly wrong';
-			else if (error.response.status === 403 && !originalRequest._retry) {
+			} else if (error.response.status === 403 && !originalRequest._retry) {
+				if (error.response.data.message === 'jwt expired') {
+					window.location.href = '/login';
+					localStorage.removeItem('FA:token');
+				}
+				console.log(error.response.data.message);
 				originalRequest._retry = true;
 				const session = localStorage['FA:token']
 					? JSON.parse(localStorage['FA:token'])
@@ -32,20 +37,16 @@ export default function errorHandler(error) {
 							);
 
 							originalRequest.headers.authorization = res.data.token;
-							
+
 							return axios(originalRequest);
-						
-							// if (error.response.status === 403) {
-							// 	window.location.href = '/login';
-							// 	localStorage.removeItem('FA:token');
-							// }
-							
 						} else {
 							window.location.href = '/login';
 							localStorage.removeItem('FA:token');
 						}
 					});
-			} else message = error.response.data.message;
+			} else {
+				message = error.response.data.message;
+			}
 
 			if (typeof message === 'string') toast.error(message);
 
