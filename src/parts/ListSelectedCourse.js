@@ -1,20 +1,18 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 
-import useForm from 'helpers/hooks/useForm';
+import selectedCourse from 'constants/api/selected';
 
-
-import selectedCourse from 'constants/api/oprec';
-
-export default function OprecForm({ data, course }) {
-
+export default function ListSelectedCourse({ data }) {
 	async function submit(e) {
 		e.preventDefault();
 
 		const id = data.id;
-
 		selectedCourse.DelMyCourse(id).then((res) => {
 			toast.success('Selected course deleted');
+			if (id) {
+				window.location.reload();
+			}
 		});
 	}
 
@@ -24,8 +22,7 @@ export default function OprecForm({ data, course }) {
 				<tr>
 					<td>
 						<div className='item-wrap'>
-							<p className='mr-4'>{course.name}</p>
-							<p className='mr-4'>{data.id}</p>
+							<p className='mr-4'>{data.offered_course.course.name}</p>
 						</div>
 					</td>
 					<td>
