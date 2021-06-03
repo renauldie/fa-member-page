@@ -14,6 +14,7 @@ import {
 	fetchCourses,
 	messageCourse,
 } from 'store/actions/myCourse';
+import EmptyCourse from '../parts/EmptyCourse';
 
 export default function SelectedCourse() {
 	const dispatch = useDispatch();
@@ -52,39 +53,46 @@ export default function SelectedCourse() {
 							</section>
 							{COURSES.status === 'loading' && <Loading></Loading>}
 							{COURSES.status === 'error' && COURSES.message}
-							{COURSES.status === 'ok' && (
-								<section className='flex flex-col mt-10 sm:pl-0'>
-									<div className='flex flex-col'>
-										<table className='table-fixed'>
-											<thead>
-												<tr>
-													<th className='truncate w-1/6 text-left'>Course</th>
-													<th className='truncate w-1/6 text-left'>
-														Whatsapp link
-													</th>
-													<th className='truncate w-1/6 text-center'>Action</th>
-												</tr>
-											</thead>
-											{Object.values(COURSES.data)?.map?.((item, index) => {
-												return (
-													<ListSelectedCourse
-														data={item}
-														key={index}></ListSelectedCourse>
-												);
-											})}
-										</table>
-									</div>
-									<div className='mt-12'>
-										<Link to='offered-course'>
-											<button
-												className='bg-blue-700 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded transition-all duration-200 ocus:outline-none shadow-inner'
-												type='submit'>
-												Choose course
-											</button>
-										</Link>
-									</div>
-								</section>
-							)}
+							{COURSES.status === 'ok' &&
+								(COURSES.total > 0 ? (
+									<section className='flex flex-col mt-10 pl-4 sm:pl-0'>
+										<div className='flex flex-col'>
+											<table className='table-fixed'>
+												<thead>
+														<tr>
+															<th className='w-1/6 text-left'>Course</th>
+															<th className='truncate w-1/6 text-left'>
+																Whatsapp
+															</th>
+															<th className='truncate w-1/6 text-center'>
+																Action
+															</th>
+														</tr>
+												</thead>
+												{Object.values(COURSES.data)?.map?.((item, index) => {
+													return (
+														<ListSelectedCourse
+															data={item}
+															key={index}></ListSelectedCourse>
+													);
+												})}
+											</table>
+										</div>
+										<div className='mt-12 flex justify-center flex-col items-center bg-white'>
+											<Link to='offered-course'>
+												<button
+													className='bg-blue-700 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded transition-all duration-200 ocus:outline-none shadow-inner'
+													type='submit'>
+													Choose course
+												</button>
+											</Link>
+										</div>
+									</section>
+								) : (
+									<>
+										<EmptyCourse></EmptyCourse>
+									</>
+								))}
 						</div>
 					</div>
 				</main>
