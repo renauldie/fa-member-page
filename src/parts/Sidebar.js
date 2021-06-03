@@ -21,6 +21,7 @@ function Sidebar({ match, history }) {
 	function logout() {
 		users.logout().then(() => {
 			localStorage.removeItem('FA:token');
+			localStorage.removeItem('code');
 			history.push('/login');
 		});
 	}

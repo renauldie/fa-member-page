@@ -39,22 +39,21 @@ export default function SelectedCourse() {
 				<Sidebar></Sidebar>
 				<main className='flex-1'>
 					<div className='px-4 sm:px-16'>
-						{COURSES.status === 'loading' && <Loading></Loading>}
-						{COURSES.status === 'error' && COURSES.message}
-						{COURSES.status === 'ok' && (
-							<div>
-								<section className='flex flex-col sm:pl-0'>
-									<section className='flex flex-col mt-8 pl-12 sm:pl-0'>
-										<h1 className='text-xl sm:text-4xl text-gray-900 font-medium'>
-											Open Recruitment
-										</h1>
-										<p className='text-sm sm:text-lg text-gray-600'>
-											Selected Courses
-										</p>
-									</section>
+						<div>
+							<section className='flex flex-col sm:pl-0'>
+								<section className='flex flex-col mt-8 pl-12 sm:pl-0'>
+									<h1 className='text-xl sm:text-4xl text-gray-900 font-medium'>
+										Open Recruitment
+									</h1>
+									<p className='text-sm sm:text-lg text-gray-600'>
+										Selected Courses
+									</p>
 								</section>
-								<section className='flex flex-col mt-3 pl-12 sm:pl-0'>
-									<div className='flex pb-5'></div>
+							</section>
+							{COURSES.status === 'loading' && <Loading></Loading>}
+							{COURSES.status === 'error' && COURSES.message}
+							{COURSES.status === 'ok' && (
+								<section className='flex flex-col mt-10 sm:pl-0'>
 									<div className='flex flex-col'>
 										<table className='table-fixed'>
 											<thead>
@@ -76,15 +75,17 @@ export default function SelectedCourse() {
 										</table>
 									</div>
 									<div className='mt-12'>
-										<Link
-											className='text-center w-1/3 h-10 p-3 bg-blue-800 hover:bg-blue-700 transition-all duration-200 focus:outline-none shadow-inner text-white py-2 rounded-md'
-											to='offered-course'>
-											<button type='submit'>Choose course</button>
+										<Link to='offered-course'>
+											<button
+												className='bg-blue-700 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded transition-all duration-200 ocus:outline-none shadow-inner'
+												type='submit'>
+												Choose course
+											</button>
 										</Link>
 									</div>
 								</section>
-							</div>
-						)}
+							)}
+						</div>
 					</div>
 				</main>
 			</div>

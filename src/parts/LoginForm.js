@@ -38,6 +38,11 @@ function LoginForm({ history }) {
 							u: u,
 						})
 					);
+					
+					const code = u.substr(3, 2);
+					localStorage.setItem(
+						'code', code
+					);
 
 					const redirect = localStorage.getItem('FA:redirect');
 					const userCookie = {

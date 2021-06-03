@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 
 import selectedCourse from 'constants/api/selected';
+import {ReactComponent as Trash} from 'assets/images/property/trash-icon.svg'
+
 
 export default function ListSelectedCourse({ data }) {
 	async function submit(e) {
@@ -30,15 +32,14 @@ export default function ListSelectedCourse({ data }) {
 							className='rounded-md text-blue-700 hover:text-blue-400 transition-all duration-200 md:mr-3 xl:-mr-2'
 							href={data.offered_course.whatsapp_link}
 							target='_blank'>
-							join group!
+							join group! 
 						</a>
 					</td>
-					<td className='item-center'>
+					<td className='item-center text-center'>
 						<form onSubmit={submit}>
 							<button
-								type='submit'
-								className='w-full h-10 bg-red-800 hover:bg-red-700 transition-all duration-200 focus:outline-none shadow-inner text-white py-2 rounded-md'>
-								delete
+								type='submit'>
+								<Trash className='fill-current text-green-600 w-10 h-10 svg-change'></Trash>
 							</button>
 						</form>
 					</td>
