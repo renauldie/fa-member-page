@@ -4,37 +4,37 @@ import { Link } from 'react-router-dom';
 export default function Dashboard() {
 	return (
 		<>
-			<section className='flex justify-between flex-col xl:flex-row md:flex-row items-center'>
-				<div className='bg-white rounded-xl shadow-md overflow-hidden mt-10 xl:w-1/3 xs:w-4/5 md:w-1/3 mr-3'>
+			<section className='flex justify-between flex-col w-full xl:flex-row md:flex-row items-center'>
+				<div className='bg-white rounded-xl shadow-md overflow-hidden mt-10 xl:w-1/3 xs:w-full sm:w-full md:w-1/3 mr-3'>
 					<div className='md:flex'>
 						<div className='md:flex-shrink-0'></div>
-						<div class='p-8'>
-							<div class='uppercase tracking-wide text-sm text-indigo-500 font-semibold'>
-								Available Course
+						<div className='p-8'>
+							<div className='uppercase tracking-wide text-sm text-indigo-500 font-semibold'>
+								Available Course	
 							</div>
-							<p class='mt-2 text-gray-500 text-2xl'>10</p>
+							<p className='mt-2 text-gray-900 text-2xl'>10 <span className='mt-2 text-gray-500 text-2xl'>Courses</span></p>
 						</div>
 					</div>
 				</div>
-				<div className='bg-white rounded-xl shadow-md overflow-hidden mt-10 xl:w-1/3  xs:w-4/5 md:w-1/3 mr-3'>
+				<div className='bg-white rounded-xl shadow-md overflow-hidden mt-10 xl:w-1/3 xs:w-full sm:w-full md:w-1/3 mr-3'>
 					<div className='md:flex'>
 						<div className='md:flex-shrink-0'></div>
-						<div class='p-8'>
-							<div class='uppercase tracking-wide text-sm text-indigo-500 font-semibold'>
-								Available Course
+						<div className='p-8'>
+							<div className='uppercase tracking-wide text-sm text-indigo-500 font-semibold'>
+								Lecturer Recomendation
 							</div>
-							<p class='mt-2 text-gray-500 text-2xl'>10</p>
+							<p className='mt-2 text-gray-900 text-2xl'>0 <span className='mt-2 text-gray-500 text-2xl'>Student</span></p>
 						</div>
 					</div>
 				</div>
-				<div className='bg-white rounded-xl shadow-md overflow-hidden mt-10 xl:w-1/3  xs:w-4/5 md:w-1/3 mr-3'>
+				<div className='bg-white rounded-xl shadow-md overflow-hidden mt-10 xl:w-1/3 xs:w-full sm:w-full md:w-1/3 mr-3'>
 					<div className='md:flex'>
 						<div className='md:flex-shrink-0'></div>
-						<div class='p-8'>
-							<div class='uppercase tracking-wide text-sm text-indigo-500 font-semibold'>
-								Available Course
+						<div className='p-8'>
+							<div className='uppercase tracking-wide text-sm text-indigo-500 font-semibold'>
+								Certivicate Status
 							</div>
-							<p class='mt-2 text-gray-500 text-2xl'>10</p>
+							<p className='mt-2 text-gray-900 text-2xl'>Yes</p>
 						</div>
 					</div>
 				</div>
