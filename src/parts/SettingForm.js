@@ -112,6 +112,7 @@ function SettingForm({ details, history }) {
 					</div>
 					<div className='w-full flex flex-col'>
 						<span className='text-gray-600'>Add your picture...</span>
+						<span className="text-red-600 italic text-xs">*MAX SIZE 700kb</span>
 						<div>
 							<input
 								type='file'
