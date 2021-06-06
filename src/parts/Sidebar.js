@@ -28,7 +28,7 @@ function Sidebar({ match, history }) {
 
 	const sidebarStyle = {
 		width: 280,
-		left: window.innerWidth < 640 && !toggleMenu ? '-280px' : 0,
+		left: window.innerWidth < 640 && !toggleMenu ? -280 : 0,
 	};
 
 	return (
